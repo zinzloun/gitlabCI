@@ -48,6 +48,12 @@ VERSION="12 (bookworm)"
 - Python3 & Pip3: https://reintech.io/blog/install-python3-pip-debian-12
 
 ## Gitlab configuration
-- Change the default root password that you can find in
+- Change the initial root password
+- Create a new group
+- Create a new runner for the group (Build->Runners). Set a tag, that we will use it later on the pipe configuration. For this lab I tagged the runner as <b>ssh</b>.
+  -  Execute the commands indicated as sudo, accept the default values proposed and set <b>ssh</b> as excutor.
+  -  Coming back to the server web gui and click View runners
+  -  You should see your newly created runner as online
+- Add gitlab-runner user to docker group
 
-        /etc/gitlab/initial_root_password
+        sudo usermod -a -G docker gitlab-runner
