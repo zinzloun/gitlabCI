@@ -57,3 +57,5 @@ VERSION="12 (bookworm)"
 - Add gitlab-runner user to docker group
 
         sudo usermod -a -G docker gitlab-runner
+        id gitlab-runner
+            uid=990(gitlab-runner) gid=989(gitlab-runner) groups=989(gitlab-runner),988(docker)
