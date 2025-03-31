@@ -49,6 +49,7 @@ VERSION="12 (bookworm)"
 
 ## Gitlab configuration
 - Change the initial root password
+- Disable sign up at <i>http://[your-hostname]/admin/application_settings/general#js-signup-settings</i>
 - Create a new group
 - Create a new runner for the group (Build->Runners). Set a tag, that we will use it later on the pipe configuration. For this lab I tagged the runner as <b>ssh</b>.
   -  Execute the commands indicated as sudo, accept the default values proposed and set <b>ssh</b> as excutor.
@@ -59,3 +60,5 @@ VERSION="12 (bookworm)"
         sudo usermod -a -G docker gitlab-runner
         id gitlab-runner
             uid=990(gitlab-runner) gid=989(gitlab-runner) groups=989(gitlab-runner),988(docker)
+- Create a new private project and name it <b>Extremely Vulnerable Flask App </b>. Don't add the default README.md page.
+  - Clone the following repo on the server: https://github.com/manuelz120/extremely-vulnerable-flask-app
