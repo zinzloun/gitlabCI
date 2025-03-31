@@ -1,0 +1,67 @@
+sast-snyk:
+  stage: sast-snyk
+  tags:
+    - ssh
+  before_script:
+    - export SNYK_TOKEN=$SNYK_TOKEN
+    - EXIT_CODE=${EXIT_CODE:-0} #default no error
+  script:
+    - curl -O https://downloads.snyk.io/cli/stable/snyk-linux
+    - chmod u+x snyk-linux
+    - ./snyk-linux code test --severity-threshold=high --json-file-output="$(pwd)/snyk-code.json" || EXIT_CODE=$?
+    #in case snyk find an issue it returns an error, this prevet to block the pipe
+    - if [ $EXIT_CODE -eq 1 ]; then exit 0; else exit $EXIT_CODE; fi
+  artifacts:
+   paths:
+    - snyk-code.json
+
+snyk-deps:
+  stage: snyk-deps # the cli must be installed on the runner
+  tags:
+    - ssh
+  before_script:
+    - export SNYK_TOKEN=$SNYK_TOKEN
+    - EXIT_CODE=${EXIT_CODE:-0} #default no error
+  script:
+    - curl -O https://downloads.snyk.io/cli/stable/snyk-linux
+    - chmod u+x snyk-linux
+    - ./snyk-linux test --file=requirements.txt --command=python3 --json-file-output="$(pwd)/snyk-test.json" || EXIT_CODE=$?
+    #in case snyk find an issue it returns an error, this prevet to block the pipe
+    - if [ $EXIT_CODE -eq 1 ]; then exit 0; else exit $EXIT_CODE; fi
+  artifacts:
+   paths:
+    - snyk-test.json
+
+build: #docker must be installed on the runner
+  stage: build
+  script:
+    - docker network create zapnet
+    - docker build . -t extremely_vulnerable_flask_app
+    - docker run --net zapnet -d --name extremely_vulnerable_flask_app extremely_vulnerable_flask_app
+  tags:
+    - ssh
+
+dast:
+  stage: dast
+  script:
+    - docker pull zaproxy/zap-stable
+    - touch zap_report.html
+    - chmod 666 zap_report.html
+    - docker run --rm --net zapnet -v $(pwd):/zap/wrk/:rw -u 0 
+        -t zaproxy/zap-stable zap.sh
+        -cmd -addonupdate -quickurl "http://extremely_vulnerable_flask_app" 
+        -quickprogress -quickout /zap/wrk/zap_report.html
+  tags:
+    - ssh
+  artifacts:
+    paths:
+    - zap_report.html
+
+cleanup:
+  stage: cleanup
+  script:
+    - docker stop $(docker ps -a -q)
+    - docker rm $(docker ps -a -q)
+    - docker network rm zapnet
+  tags:
+    - ssh
