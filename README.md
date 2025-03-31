@@ -42,3 +42,12 @@ VERSION="12 (bookworm)"
   - Project Key
   - Organization Key
   - A token. Once logged in, you can generate it from: https://sonarcloud.io/account/security
+- A Snyk account
+  - You need an Auth token. Once logged in, you can get it from: https://app.snyk.io/account
+- Docker CE installed: https://docs.docker.com/engine/install/debian/
+- Python3 & Pip3: https://reintech.io/blog/install-python3-pip-debian-12
+
+## Gitlab configuration
+- Change the default root password that you can find in
+
+        /etc/gitlab/initial_root_password
