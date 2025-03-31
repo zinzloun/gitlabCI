@@ -1,4 +1,25 @@
 # GitLab CE DevSecOps CI
+      
+         *.                  *.
+        ***                 ***
+       *****               *****
+      .******             *******
+      ********            ********
+       ,,,,,,,,,***********,,,,,,,,,
+      ,,,,,,,,,,,*********,,,,,,,,,,,
+      .,,,,,,,,,,,*******,,,,,,,,,,,,
+          ,,,,,,,,,*****,,,,,,,,,.
+             ,,,,,,,****,,,,,,
+                .,,,***,,,,
+                    ,*,.
+      
+         _______ __  __          __
+        / ____(_) /_/ /   ____ _/ /_
+       / / __/ / __/ /   / __ `/ __ \
+      / /_/ / / /_/ /___/ /_/ / /_/ /
+      \____/_/\__/_____/\__,_/_.___/
+
+
 This is repo provides setup instruction to create a Gitlab CE DevSecOps CI pipe
 ## Architecture
 This is a lab enviroment and I keep it simple: I installed Gitlab and the runner on the same machine, that it's not a appropriate configuratuion for a producion enviroment.
