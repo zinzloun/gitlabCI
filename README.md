@@ -37,4 +37,8 @@ VERSION="12 (bookworm)"
 
       external_url 'http://<your hostname>'
   make sure you can resolve the name with your local IP (not 127.0.0.1), in case adjust your hosts file
-- Gitlab runner
+- Gitlab runner: https://docs.gitlab.com/runner/install/linux-repository
+- A SonarCloud account with a project configured. You will need to provide the following information to perform a scan:
+  - Project Key
+  - Organization Key
+  - A token. Once logged in, you can generate it from: https://sonarcloud.io/account/security
