@@ -1,3 +1,11 @@
+stages:
+  - sast-snyk
+  - snyk-deps
+  - sast-sonar
+  - build
+  - dast
+  - cleanup
+
 sast-snyk:
   stage: sast-snyk
   tags:
