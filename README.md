@@ -63,3 +63,6 @@ VERSION="12 (bookworm)"
             uid=990(gitlab-runner) gid=989(gitlab-runner) groups=989(gitlab-runner),988(docker)
 ## Import a project in Gitlab
 - On your Github account fork the following project: https://github.com/manuelz120/extremely-vulnerable-flask-app
+- On Gitlab set Github as import source: https://docs.gitlab.com/administration/settings/import_and_export_settings/#configure-allowed-import-sources
+- Import the cloned repo from your Github account to Gitlab using a Github personal access token: https://docs.gitlab.com/user/project/import/github/
+- Now create a new project as import project. Select the cloned repo, be sure to change from root to your group before to proceed
