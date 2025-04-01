@@ -61,5 +61,5 @@ VERSION="12 (bookworm)"
         sudo usermod -a -G docker gitlab-runner
         id gitlab-runner
             uid=990(gitlab-runner) gid=989(gitlab-runner) groups=989(gitlab-runner),988(docker)
-- Create a new private project and name it <b>Extremely Vulnerable Flask App </b>. Don't add the default README.md page.
-  - Clone the following repo on the server: https://github.com/manuelz120/extremely-vulnerable-flask-app
+## Import a project in Gitlab
+- On your Github account fork the following project: https://github.com/manuelz120/extremely-vulnerable-flask-app
