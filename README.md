@@ -46,6 +46,7 @@ VERSION="12 (bookworm)"
   - You need an Auth token. Once logged in, you can get it from: https://app.snyk.io/account
 - Docker CE installed: https://docs.docker.com/engine/install/debian/
 - Python3 & Pip3: https://reintech.io/blog/install-python3-pip-debian-12
+- A Github account to import a project in Gitlab
 
 ## Gitlab configuration
 - Change the initial root password
