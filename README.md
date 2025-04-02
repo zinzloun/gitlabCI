@@ -83,13 +83,13 @@ Do the same for Snyk, in this case you only need of your Auth token, that you ca
 In Gitlab create another variable as done before, set the Key value as SNYK_TOKEN and the value according to your Auth-token
 
 ## Create the CI pipe
-Our pipe will be composed by thw following stages:
+Our pipe will be composed by thw following stages:<b>
 - sast-snyk: performs SAST analysis using Snyk
 - snyk-deps: performs SCA analysis using SnyK
 - sast-sonar: performs SAST analysis using SonarCloud
 - build: builds and run extremely-vulnerable-flask-app using a Docker container
 - dast: Perform DAST analysis using OWASP Zap against extremely-vulnerable-flask-app 
-- cleanup: clean up docker artifacts
+- cleanup: clean up docker artifacts</b>
 
 To run the pipe copy from this repository to root of the Gitlab project the <b>sonar.properties</b> file, change the properties values according to your SonarCloud project configuration, then copy the <b>.gitlab-ci.yml</b> configuration. The pipe will start.
 
