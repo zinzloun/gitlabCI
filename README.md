@@ -66,4 +66,6 @@ VERSION="12 (bookworm)"
 - On Gitlab set Github as import source: https://docs.gitlab.com/administration/settings/import_and_export_settings/#configure-allowed-import-sources
 - Import the cloned repo from your Github account to Gitlab using a Github personal access token: https://docs.gitlab.com/user/project/import/github/
 - Now create a new project as import project. Select the cloned repo, be sure to change the owner from root to your group before to proceed
-- We need to creata another branch named master, since Snyk free plan allows only to scan master branches
+- We need to creata another branch named master, since Snyk free plan allows only to scan master branches. In your new project navigate to Code->Branches, click New branch, set the name as master and create it from main. Then go to Settings->Repository, expand Branch defaults and set master. Eventually you can return to the branches section to delete main
+
+
