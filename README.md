@@ -65,4 +65,5 @@ VERSION="12 (bookworm)"
 - On your Github account fork the following project: https://github.com/manuelz120/extremely-vulnerable-flask-app
 - On Gitlab set Github as import source: https://docs.gitlab.com/administration/settings/import_and_export_settings/#configure-allowed-import-sources
 - Import the cloned repo from your Github account to Gitlab using a Github personal access token: https://docs.gitlab.com/user/project/import/github/
-- Now create a new project as import project. Select the cloned repo, be sure to change from root to your group before to proceed
+- Now create a new project as import project. Select the cloned repo, be sure to change the owner from root to your group before to proceed
+- We need to creata another branch named master, since Snyk free plan allows only to scan master branches
