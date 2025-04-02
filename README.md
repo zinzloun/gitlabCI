@@ -90,4 +90,5 @@ Our pipe will be composed by thw following stages:
 - build: builds and run extremely-vulnerable-flask-app using a Docker container
 - dast: Perform DAST analysis using OWASP Zap against extremely-vulnerable-flask-app 
 - cleanup: clean up docker artifacts
+To run the pipe copy from this repository to root of the Gitlab project the <b>sonar.properties</b> file, change the properties values according to your SonarCloud project configuration, then copy the <b>.gitlab-ci.yml</b> configuration. The pipe will start.
 
