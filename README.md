@@ -84,4 +84,10 @@ In Gitlab create another variable as done before, set the Key value as SNYK_TOKE
 
 ## Create the CI pipe
 Our pipe will be composed by thw following stages:
+- sast-snyk: performs SAST analysis using Snyk
+- snyk-deps: performs SCA analysis using SnyK
+- sast-sonar: performs SAST analysis using SonarCloud
+- build: builds and run extremely-vulnerable-flask-app using a Docker container
+- dast: Perform DAST analysis using OWASP Zap against extremely-vulnerable-flask-app 
+- cleanup: clean up docker artifacts
 
