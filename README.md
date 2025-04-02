@@ -70,7 +70,7 @@ VERSION="12 (bookworm)"
 
 ## Create project variable
 You need to create a SonarCloud account, then you must create an organization and  related project. 
-Visit https://sonarcloud.io/projects to create both. We will need of these information (organization and project key) to configure the scan, plus of course the token. 
+Visit https://sonarcloud.io/projects to create both. We will need of these information (organization and project key) to configure the scan properties, plus of course the token. 
 To get a token for the pipe visit https://sonarcloud.io/account/security
 
 Once you get the token create a variable for the project in Gitlab. Go to Setting -> CI/CD, then expand Variables and add a new one, having the following set:
@@ -79,8 +79,8 @@ Once you get the token create a variable for the project in Gitlab. Go to Settin
 - Key: SONAR_TOKEN
 - Value: <your-token>
 
-Do the same for Snyk, in this case you need just of your Auth token, that you can get, once you have created an account, at https://app.snyk.io/account.
-In Gitlab create another variable as done before, set the Key value as SNYK_TOKEN and the value as you <Auth-token>
+Do the same for Snyk, in this case you only need of your Auth token, that you can get, once you have created an account, at https://app.snyk.io/account.
+In Gitlab create another variable as done before, set the Key value as SNYK_TOKEN and the value according to your Auth-token
 
 ## Create the CI pipe
 Our pipe will be composed by thw following stages:
