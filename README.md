@@ -82,3 +82,6 @@ Once you get the token create a variable for the project in Gitlab. Go to Settin
 Do the same for Snyk, in this case you need just of your Auth token, that you can get, once you have created an account, at https://app.snyk.io/account.
 In Gitlab create another variable as done before, set the Key value as SNYK_TOKEN and the value as you <Auth-token>
 
+## Create the CI pipe
+Our pipe will be composed by thw following stages:
+
