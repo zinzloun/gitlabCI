@@ -92,3 +92,7 @@ Our pipe will be composed by thw following stages:
 - cleanup: clean up docker artifacts
 To run the pipe copy from this repository to root of the Gitlab project the <b>sonar.properties</b> file, change the properties values according to your SonarCloud project configuration, then copy the <b>.gitlab-ci.yml</b> configuration. The pipe will start.
 
+## Security considerations
+- If your pipe is compromised the attack payloads will run on the gitlab-runner user context, so grant to this user only the minimum privileges to operate, don't add the user to the sudoers
+- In a real enviroment the pipe should run in a developer branch, then create another pipe for the merge request to be approved by another group, ideally the developers should not have the rights to merge requests
+- Secure Docker engine, more information can be found here: https://docs.docker.com/engine/security
