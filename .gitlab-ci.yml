@@ -39,6 +39,17 @@ snyk-deps:
   artifacts:
    paths:
     - snyk-test.json
+    
+sast-sonar: # you must have sonar.properties file in the root directory of you project
+  stage: sast-sonar
+  tags:
+    - ssh
+  script:
+      - docker pull sonarsource/sonar-scanner-cli
+      - docker run --rm 
+         -e SONAR_HOST_URL="https://sonarcloud.io"
+         -e SONAR_TOKEN="$SONAR_TOKEN"
+         -v "$(pwd):/usr/src" sonarsource/sonar-scanner-cli
 
 build: #docker must be installed on the runner
   stage: build
